@@ -65,8 +65,6 @@ $route['mobil/detail/(:any)'] = 'Admin/Mobil/detail/$1';
 $route['mobil/tambah-edit'] = 'Admin/Mobil/insertUpdate';
 $route['mobil/hapus/(:any)'] = 'Admin/Mobil/delete/$1';
 
-
-
 //user
 $route['pengguna'] = 'Admin/Pengguna';
 $route['pengguna/tambah-edit'] = 'Admin/Pengguna/insertUpdate';

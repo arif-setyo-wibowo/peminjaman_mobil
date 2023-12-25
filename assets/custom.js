@@ -42,3 +42,51 @@ $("#tambah-edit-tab").on("click", function () {
 	$("#password").prop("required", true);
 	$("#proses").val("Tambah");
 });
+
+// Edit Mobil
+function editMobil(
+	id,
+	merk_mobil,
+	nama_mobil,
+	idkategori,
+	tahun_mobil,
+	kapasitas,
+	harga_sewa,
+	stok,
+	no_plat,
+	warna,
+	no_bpkb
+) {
+	$('[href="#tambah-edit"]').tab("show");
+	$("#idmobil").val(id);
+	$("#merk_mobil").val(merk_mobil);
+	$("#nama_mobil").val(nama_mobil);
+	$("#idkategori").val(idkategori);
+	$("#tahun_mobil").val(tahun_mobil);
+	$("#kapasitas").val(kapasitas);
+	$("#harga_sewa").val(harga_sewa);
+	$("#stok").val(stok);
+	$("#no_plat").val(no_plat);
+	$("#warna").val(warna);
+	$("#no_bpkb").val(no_bpkb);
+	$("#notifGambar").text("*Kosongkan Jika Tidak Ingin Merubah Gambar");
+	$("#gambar").removeAttr("required");
+	$("#proses").val("Update");
+}
+
+$("#tambah-edit-tab").on("click", function () {
+	$("#idmobil").val("");
+	$("#merk_mobil").val();
+	$("#nama_mobil").val("");
+	$("#idkategori").val();
+	$("#tahun_mobil").val();
+	$("#kapasitas").val();
+	$("#harga_sewa").val("");
+	$("#stok").val();
+	$("#no_plat").val("");
+	$("#warna").val("");
+	$("#no_bpkb").val("");
+	$("#notifGambar").empty();
+	$("#gambar").prop("required", true);
+	$("#proses").val("Tambah");
+});

@@ -66,7 +66,8 @@
                                           </i>
                                           Detail
                                        </a>
-                                       <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-id="" data-target="#modal-default">
+                                       <button type="button" class="btn btn-info btn-sm"
+                                          onclick="editMobil('<?= $data->idmobil ?>','<?= $data->merk_mobil ?>','<?= $data->nama_mobil ?>','<?= $data->idkategori ?>','<?= $data->tahun_mobil ?>','<?= $data->kapasitas ?>','<?= $data->harga_sewa ?>','<?= $data->stok ?>','<?= $data->no_plat ?>','<?= $data->warna ?>','<?= $data->no_bpkb ?>')">
                                           <i class="fas fa-pencil-alt"></i>
                                           Edit
                                        </button>
@@ -95,11 +96,11 @@
                               </div>
                               <div class="form-group">
                                  <label>Mobil</label>
-                                 <input type="text" class="form-control" name="nama_mobil" id="nama_mobil" placeholder="Masukkan Nama Mobil">
+                                 <input type="text" class="form-control" name="nama_mobil" id="nama_mobil" placeholder="Masukkan Nama Mobil" required>
                               </div>
                               <div class="form-group">
                                  <label>Merk Mobil</label>
-                                 <input type="text" class="form-control" name="merk_mobil" id="merk_mobil" placeholder="Masukkan Merk Mobil">
+                                 <input type="text" class="form-control" name="merk_mobil" id="merk_mobil" placeholder="Masukkan Merk Mobil" required>
                               </div>
                               <div class="form-group">
                                  <label>Tahun Mobil</label>
@@ -112,11 +113,11 @@
                               </div>
                               <div class="form-group">
                                  <label>Plat Mobil</label>
-                                 <input type="text" class="form-control" name="no_plat" id="no_plat" placeholder="Masukkan PLat Nomor">
+                                 <input type="text" class="form-control" name="no_plat" id="no_plat" placeholder="Masukkan PLat Nomor" required>
                               </div>
                               <div class="form-group">
                                  <label>Bpkb Mobil</label>
-                                 <input type="text" class="form-control" name="no_bpkb" id="no_bpkb" placeholder="Masukkan No BPKB">
+                                 <input type="text" class="form-control" name="no_bpkb" id="no_bpkb" placeholder="Masukkan No BPKB" required>
                               </div>
                               <div class="form-group">
                                  <label>Kapasitas (Orang)</label>
@@ -129,11 +130,12 @@
                               </div>
                               <div class="form-group">
                                  <label>Warna</label>
-                                 <input type="text" class="form-control" name="warna" id="warna" placeholder="Masukkan Warna">
+                                 <input type="text" class="form-control" name="warna" id="warna" placeholder="Masukkan Warna" required>
                               </div>
                               <div class="form-group">
                                  <label>Gambar</label>
-                                 <input type="file" class="form-control" name="gambar" id="gambar">
+                                 <input type="file" class="form-control" name="gambar" id="gambar" required>
+                                 <span class="text-danger" id="notifGambar"></span>
                               </div>
                               <div class="form-group">
                                  <label>Stok</label>
@@ -146,7 +148,8 @@
                               </div>
                               <div class="form-group">
                                  <label>Harga Sewa (Perhari)</label>
-                                 <input type="number" class="form-control" name="harga_sewa" id="harga_sewa" placeholder="Masukkan Harga Sewa">
+                                 <input type="number" class="form-control" name="harga_sewa" id="harga_sewa" placeholder="Masukkan Harga Sewa" required>
+                                 <input type="hidden" name="idmobil" id="idmobil">
                               </div>
                               <div class="form-group">
                                  <input type="submit" name="proses" id="proses" value="Tambah" class="btn btn-primary">
@@ -164,73 +167,6 @@
    </section>
    <!-- /.content -->
 </div>
-
-<!-- Modal -->
-<div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-            <h4 class="modal-title">Default Modal</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-               <span aria-hidden="true">×</span>
-            </button>
-         </div>
-         <form>
-            <div class="modal-body">
-               <div class="form-group">
-                  <label>Merk Mobil</label>
-                  <input type="text" class="form-control" placeholder="Masukkan Kategori">
-               </div>
-               <div class="form-group">
-                  <label>Tahun Mobil</label>
-                  <input type="text" class="form-control" placeholder="Masukkan Kategori">
-               </div>
-               <div class="form-group">
-                  <label>Plat Mobil</label>
-                  <input type="text" class="form-control" placeholder="Masukkan Kategori">
-               </div>
-               <div class="form-group">
-                  <label>Bpkb Mobil</label>
-                  <input type="text" class="form-control" placeholder="Masukkan Kategori">
-               </div>
-               <div class="form-group">
-                  <label>Mobil</label>
-                  <input type="text" class="form-control" placeholder="Masukkan Kategori">
-               </div>
-               <div class="form-group">
-                  <label>Kapasitas</label>
-                  <input type="text" class="form-control" placeholder="Masukkan Kategori">
-               </div>
-               <div class="form-group">
-                  <label>Warna</label>
-                  <input type="text" class="form-control" placeholder="Masukkan Kategori">
-               </div>
-               <div class="form-group">
-                  <label>Gambar</label>
-                  <input type="file" class="form-control" placeholder="Masukkan Kategori">
-               </div>
-               <div class="form-group">
-                  <label>Stok</label>
-                  <input type="text" class="form-control" placeholder="Masukkan Kategori">
-               </div>
-               <div class="form-group">
-                  <label>Kategori</label>
-                  <select name="">
-                     <option value="">Kategori</option>
-                  </select>
-               </div>
-            </div>
-            <div class="modal-footer justify-content-between">
-               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-               <button type="submit" class="btn btn-primary">Save changes</button>
-            </div>
-         </form>
-      </div>
-      <!-- /.modal-content -->
-   </div>
-   <!-- /.modal-dialog -->
-</div>
-
 
 <?php $this->load->view($footer)?>
 <script>
