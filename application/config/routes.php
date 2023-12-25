@@ -56,6 +56,8 @@ $route['translate_uri_dashes'] = FALSE;
 
 //kategori
 $route['kategori'] = 'Admin/Kategori';
+$route['kategori/tambah-edit'] = 'Admin/Kategori/insertUpdate';
+$route['kategori/hapus/(:any)'] = 'Admin/Kategori/delete/$1';
 
 //mobil
 $route['mobil'] = 'Admin/Mobil';
