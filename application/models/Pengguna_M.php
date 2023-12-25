@@ -2,6 +2,10 @@
 
 class Pengguna_M extends CI_Model
 {
+    public function countAllUser() {
+        return $this->db->where('level','user')->from('t_pengguna')->count_all_results();
+    }
+
     function getPengguna()
     {
         $this->db->select('*');

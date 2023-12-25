@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 25 Des 2023 pada 12.25
+-- Waktu pembuatan: 25 Des 2023 pada 16.14
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -50,11 +50,11 @@ CREATE TABLE `t_kategori` (
 --
 
 INSERT INTO `t_kategori` (`idkategori`, `kategori`) VALUES
-(13, 'Motor'),
-(14, 'Mobil'),
-(15, 'Rumah'),
-(16, 'Kostum'),
-(17, 'Kamera');
+(13, 'Toyota'),
+(14, 'Honda'),
+(15, 'BMW'),
+(16, 'Audi'),
+(17, 'Nissan');
 
 -- --------------------------------------------------------
 
@@ -71,7 +71,7 @@ CREATE TABLE `t_mobil` (
   `kapasitas` int(15) NOT NULL,
   `harga_sewa` int(15) NOT NULL,
   `stok` int(15) NOT NULL,
-  `no_plat` int(15) NOT NULL,
+  `no_plat` varchar(35) NOT NULL,
   `warna` varchar(200) NOT NULL,
   `gambar` text NOT NULL,
   `no_bpkb` varchar(100) NOT NULL
@@ -82,7 +82,7 @@ CREATE TABLE `t_mobil` (
 --
 
 INSERT INTO `t_mobil` (`idmobil`, `merk_mobil`, `nama_mobil`, `idkategori`, `tahun_mobil`, `kapasitas`, `harga_sewa`, `stok`, `no_plat`, `warna`, `gambar`, `no_bpkb`) VALUES
-(1, 'honda', '', 1, 'tahun 1968', 5, 200, 3, 15, 'hitam', '3.jpg', 'B 3203');
+(2, 'Avanza', 'Tes Mobil', 14, '1986', 9, 600000, 17, 'W 9090 NBB', 'Putih', '6589947e19fc8_210b7d9f3f89b506813973d8b12b120d.png', '0897182676123');
 
 -- --------------------------------------------------------
 
@@ -121,7 +121,7 @@ CREATE TABLE `t_pengguna` (
 --
 
 INSERT INTO `t_pengguna` (`idpengguna`, `nama`, `username`, `email`, `password`, `level`, `status`) VALUES
-(1, 'admin', 'admin', 'admin@gmail.com', '$2a$12$CvivzKSr7XMeipjWrgT8W.deurrcrjkYgqCm0cRR5qYh/spE2WnGu', 'Admin', 'aktif'),
+(1, 'admin', 'admin', 'admin@gmail.com', '$2a$12$Pfpy258NiidKtHOf0Sb0GO2i8xjlyomcvbZBUTh3Ek6XnCnsLJufe', 'Admin', 'aktif'),
 (3, 'okkyboy', 'okkyboy', 'okkyfirman16@gmail.com', '$2y$10$wKfjKGi3TtdaHM74o4Efj.W9IFbKnpJ9cvGrN.uPaegF.myPqpES.', 'User', 'aktif'),
 (4, 'petugas', 'petugas1', 'petugas@gmail.com', '$2y$10$5PnCbyNKIpTbqaA.goVf1.jWnqkF9ToSPlDsTOVqQ3ZwMpT8wWrmC', 'Petugas', 'aktif');
 
@@ -182,7 +182,7 @@ ALTER TABLE `t_kategori`
 -- AUTO_INCREMENT untuk tabel `t_mobil`
 --
 ALTER TABLE `t_mobil`
-  MODIFY `idmobil` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idmobil` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `t_peminjaman`

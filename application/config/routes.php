@@ -54,6 +54,9 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
+//dashboard
+$route['detail_mobil/(:num)'] = 'dashboard/detail/$1';
+
 //kategori
 $route['kategori'] = 'Admin/Kategori';
 $route['kategori/tambah-edit'] = 'Admin/Kategori/insertUpdate';
@@ -64,8 +67,6 @@ $route['mobil'] = 'Admin/Mobil';
 $route['mobil/detail/(:any)'] = 'Admin/Mobil/detail/$1';
 $route['mobil/tambah-edit'] = 'Admin/Mobil/insertUpdate';
 $route['mobil/hapus/(:any)'] = 'Admin/Mobil/delete/$1';
-
-
 
 //user
 $route['pengguna'] = 'Admin/Pengguna';

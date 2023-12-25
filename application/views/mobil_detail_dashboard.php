@@ -47,7 +47,7 @@
                   </div><!-- /.col -->
                   <div class="col-sm-6">
                     <?php if ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Admin' ) : ?>
-                      <ol class="breadcrumb float-sm-right ml-2">
+                      <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url('kategori')?>" class="btn btn-primary">Dashboard Admin</a></li>
                       </ol>&nbsp;
                       <ol class="breadcrumb float-sm-right">
@@ -78,146 +78,87 @@
                </div><!-- /.row -->
             </div><!-- /.container-fluid -->
          </div>
-         <!-- /.content-header -->
-         <!-- Main content -->
-         <section class="content">
-            <div class="container-fluid">
-               <!-- Small boxes (Stat box) -->
-               <?php if ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Admin' ) : ?>
-                  <div class="row">
-                     <div class="col-lg-4 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info">
-                           <div class="inner">
-                              <h3><?= $mobildata ?></h3>
-                              <p>Total Mobil</p>
-                           </div>
-                           <div class="icon">
-                              <i class="ion ion-bag"></i>
-                           </div>
-                        </div>
+
+
+         <!-- Content Wrapper. Contains page content -->
+         <div class="content-wrapper ml-0">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+               <div class="container-fluid">
+                  <div class="row mb-2">
+                     <div class="col-sm-6">
+                        <a href="<?= base_url('') ?>" class="btn btn-sm btn-danger">Kembali</a>
                      </div>
-                     <!-- ./col -->
-                     <div class="col-lg-4 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-success">
-                           <div class="inner">
-                              <h3>13</h3>
-                              <p>Total Pinjaman</p>
-                           </div>
-                           <div class="icon">
-                              <i class="ion ion-stats-bars"></i>
-                           </div>
-                        </div>
-                     </div>
-                     <!-- ./col -->
-                     <div class="col-lg-4 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-warning">
-                           <div class="inner">
-                              <h3><?= $userdata ?></h3>
-                              <p>Total User</p>
-                           </div>
-                           <div class="icon">
-                              <i class="ion ion-person-add"></i>
-                           </div>
-                        </div>
-                     </div>
-                     <!-- ./col -->
                   </div>
-                  <!-- /.row -->
-               <?php elseif ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Petugas' ) : ?>
-                  <div class="row">
-                     <div class="col-lg-4 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info">
-                           <div class="inner">
-                              <h3><?= $mobildata ?></h3>
-                              <p>Total Mobil</p>
-                           </div>
-                           <div class="icon">
-                              <i class="ion ion-bag"></i>
-                           </div>
-                        </div>
-                     </div>
-                     <!-- ./col -->
-                     <div class="col-lg-4 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-success">
-                           <div class="inner">
-                              <h3>13</h3>
-                              <p>Total Pinjaman</p>
-                           </div>
-                           <div class="icon">
-                              <i class="ion ion-stats-bars"></i>
-                           </div>
-                        </div>
-                     </div>
-                     <!-- ./col -->
-                     <div class="col-lg-4 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-warning">
-                           <div class="inner">
-                              <h3><?= $userdata ?></h3>
-                              <p>Total User</p>
-                           </div>
-                           <div class="icon">
-                              <i class="ion ion-person-add"></i>
-                           </div>
-                        </div>
-                     </div>
-                     <!-- ./col -->
-                  </div>
-                  <!-- /.row -->
-               <?php endif;?>
-               <div class="card">
-                  <div class="card-header">
-                     <h3 class="card-title">Data Kendaraan</h3>
-                  </div>
-                  <!-- /.card-header -->
-                  <div class="card-body">
-                     <table id="example1" class="table table-bordered table-striped">
-                        <thead>
-                           <tr>
-                              <th>No </th>
-                              <th>Mobil</th>
-                              <th>Tahun Mobil</th>
-                              <th>Warna</th>
-                              <th>Gambar</th>
-                              <th>Harga</th>
-                              <th>Stok</th>
-                              <th>Detail</th>
-                           </tr>
-                        </thead>
-                        <tbody>
-                           <?php $no=1; foreach($mobil as $data) : ?>
-                              <tr>
-                                 <td><?= $no++ ?></td>
-                                 <td><?= $data->nama_mobil; ?></td>
-                                 <td><?= $data->tahun_mobil; ?></td>
-                                 <td><?= $data->warna; ?></td>
-                                 <td><img style="height:200px;" src='<?=base_url('uploads/mobil/'. $data->gambar) ?>' alt="" srcset=""></td>
-                                 <td><?= rupiah($data->harga_sewa); ?></td>
-                                 <td><?= $data->stok; ?></td>
-                                 <td>
-                                    <a class="btn btn-primary btn-sm" href="<?= base_url('detail_mobil/'.$data->idmobil) ?>">
-                                          <i class="fas fa-eye">
-                                          </i>
-                                          Detail
-                                       </a>
-                                 </td>
-                              </tr>
-                           <?php endforeach; ?>
-                        </tbody>
-                     </table>
-                  </div>
-                                <!-- /.card-body -->
                </div>
-                            <!-- /.card -->
-            </div><!-- /.container-fluid -->
-         </section>
-         <!-- /.content -->
-      </div>
+               <!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+               <div class="container-fluid">
+                  <div class="row">
+                     <div class="col-12 ">
+                        <div class="card card-primary card-outline card-tabs">
+                           <div class="card-header p-0 pt-1 border-bottom-0">
+                              <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
+                                 <li class="nav-item">
+                                    <a class="nav-link active" id="custom-tabs-three-home-tab" data-toggle="pill" href="#custom-tabs-three-home" role="tab" aria-controls="custom-tabs-three-home" aria-selected="true">Data Mobil</a>
+                                 </li>
+                              </ul>
+                           </div>
+                           <div class="card-body">
+                              <div class="tab-content" id="custom-tabs-three-tabContent">
+                                 <div class="tab-pane fade show active" id="custom-tabs-three-home" role="tabpanel" aria-labelledby="custom-tabs-three-home-tab">
+                                    <table class="table table-hover text-nowrap">
+                                       <thead>
+                                          <tr>
+                                             <th>#</th>
+                                             <th>Data</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <th scope="row">Gambar</th>
+                                             <td><img style="height:200px;" src='<?=base_url('uploads/mobil/'. $mobil->gambar) ?>' alt="" srcset=""></td>
+                                          </tr>
+                                          <tr>
+                                             <th scope="row">Mobil</th>
+                                             <td><?= $mobil->nama_mobil ?></td>
+                                          </tr>
+                                          <tr>
+                                             <th scope="row">Plat Nomer</th>
+                                             <td><?= $mobil->no_plat ?></td>
+                                          </tr>
+                                          <tr>
+                                             <th scope="row">Harga Perhari</th>
+                                             <td><?= $mobil->harga_sewa ?></td>
+                                          </tr>
+                                          <tr>
+                                             <th scope="row">Kategori</th>
+                                             <td><?= $mobil->kategori ?></td>
+                                          </tr>
+                                          <tr>
+                                             <th scope="row">Stok</th>
+                                             <td><?= $mobil->stok ?></td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- /.card -->
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+         </div>
+
+
+
       <!-- /.content-wrapper -->
       <footer class="main-footer">
          <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
