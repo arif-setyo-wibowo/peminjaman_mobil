@@ -12,39 +12,58 @@ class Kategori extends CI_Controller {
 
     public function index()
     {
-        $data = array(
-            'header' 	=> 'template/header_admin',
-            'footer' 	=> 'template/footer_admin',
-			'kategori' 	=> $this->Kategori_M->getKategori(),
-        );
-
-        return $this->load->view('kategori',$data);
+        $pengguna = $this->session->userdata('role');
+        if ($pengguna == 'Admin' || $pengguna == 'Petugas') {
+            $data = array(
+                'header' 	=> 'template/header_admin',
+                'footer' 	=> 'template/footer_admin',
+                'kategori' 	=> $this->Kategori_M->getKategori(),
+            );
+    
+            return $this->load->view('kategori',$data);
+        }else{
+            $this->session->set_flashdata('msg','Login sebagai admin');
+            redirect('login');
+        }
+       
     }
 
     public function insertUpdate(){
-		if ($this->input->post('proses') == 'Tambah') {
-            $data = [
-				'kategori' => $this->input->post('kategori'),
-			];
-            $this->Kategori_M->insertData($data);
-			$this->session->set_flashdata('msg', 'Berhasil Menambah Data Kategori');
-            redirect('/kategori');
-        }elseif ($this->input->post('proses') == 'Update') {
-            $data = [
-				'kategori' => $this->input->post('kategori'),
-			];
-            $this->Kategori_M->updateData($this->input->post('idkategori'),$data);
-			$this->session->set_flashdata('msg', 'Berhasil Mengubah Data Kategori');
-            redirect('/kategori');
+        $pengguna = $this->session->userdata('role');
+        if ($pengguna == 'Admin' || $pengguna == 'Petugas') {
+            if ($this->input->post('proses') == 'Tambah') {
+                $data = [
+                    'kategori' => $this->input->post('kategori'),
+                ];
+                $this->Kategori_M->insertData($data);
+                $this->session->set_flashdata('msg', 'Berhasil Menambah Data Kategori');
+                redirect('/kategori');
+            }elseif ($this->input->post('proses') == 'Update') {
+                $data = [
+                    'kategori' => $this->input->post('kategori'),
+                ];
+                $this->Kategori_M->updateData($this->input->post('idkategori'),$data);
+                $this->session->set_flashdata('msg', 'Berhasil Mengubah Data Kategori');
+                redirect('/kategori');
+            }else{
+                redirect('/kategori');
+            }
         }else{
-			redirect('/kategori');
-		}
+            $this->session->set_flashdata('msg','Login sebagai admin');
+            redirect('login');
+        }
     }
 
     public function delete($id){
-        $this->Kategori_M->deleteData($id);
-		$this->session->set_flashdata('msg', 'Berhasil Menghapus Data Kategori');
-        redirect('/kategori');
+        $pengguna = $this->session->userdata('role');
+        if ($pengguna == 'Admin' || $pengguna == 'Petugas') {
+            $this->Kategori_M->deleteData($id);
+            $this->session->set_flashdata('msg', 'Berhasil Menghapus Data Kategori');
+            redirect('/kategori');
+        }else{
+            $this->session->set_flashdata('msg','Login sebagai admin');
+            redirect('login');
+        }
     }
 }
 

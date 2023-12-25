@@ -6,13 +6,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Mobil extends CI_Controller {
 
     public function index()
-    {
-        $data = array(
-            'header' => 'template/header_admin',
-            'footer' => 'template/footer_admin'
-        );
+    {   $pengguna = $this->session->userdata('role');
+        if ($pengguna == 'Admin' || $pengguna == 'Petugas') {
+            $data = array(
+                'header' => 'template/header_admin',
+                'footer' => 'template/footer_admin'
+            );
 
-        return $this->load->view('mobil/mobil',$data);
+            return $this->load->view('mobil/mobil',$data);
+        }else{
+            $this->session->set_flashdata('msg','Login sebagai admin');
+            redirect('login');
+        }
     }
 
     function store(){

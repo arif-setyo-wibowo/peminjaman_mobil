@@ -46,15 +46,39 @@
                      <h1 class="m-0">Selamat Datang Di Aplikasi Peminjaman</h1>
                   </div><!-- /.col -->
                   <div class="col-sm-6">
-                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#" class="btn btn-primary">Login</a></li>
+                    <?php if ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Admin' ) : ?>
+                      <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="<?= base_url('kategori')?>" class="btn btn-primary">Dashboard Admin</a></li>
+                      </ol>&nbsp;
+                      <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="<?= base_url('logout')?>" class="btn btn-danger">Logout</a></li>
+                      </ol>
+                    <?php elseif ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Petugas' ) : ?>
+                      <ol class="breadcrumb float-sm-right ml-2">
+                        <li class="breadcrumb-item"><a href="<?= base_url('kategori')?>" class="btn btn-success">Dashboard Petugas</a></li>
+                      </ol>
+                      <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="<?= base_url('logout')?>" class="btn btn-danger">Logout</a></li>
                      </ol>
+                    <?php elseif ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'User' ) : ?>
+                      <ol class="breadcrumb float-sm-right ml-2">
+                        <li class="breadcrumb-item"><a href="<?= base_url('history')?>" class="btn btn-success">Dashboard User</a></li>
+                      </ol>
+                      <ol class="breadcrumb float-sm-right">
+                          <li class="breadcrumb-item"><a href="<?= base_url('logout')?>" class="btn btn-danger">Logout</a></li>
+                      </ol>
+                    <?php else : ?> 
+                      <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="<?= base_url('login')?>" class="btn btn-primary">Login</a></li>
+                      </ol>
+                    <?php endif;?>
+                   
+                    
                   </div><!-- /.col -->
                </div><!-- /.row -->
             </div><!-- /.container-fluid -->
          </div>
          <!-- /.content-header -->
-
          <!-- Main content -->
          <section class="content">
             <div class="container-fluid">

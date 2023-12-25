@@ -33,4 +33,5 @@ class Pengguna_M extends CI_Model
         $this->db->where('idpengguna', $id);
         $this->db->delete('t_pengguna');
     }
+    
 }

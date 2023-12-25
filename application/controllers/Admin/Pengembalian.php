@@ -7,12 +7,18 @@ class Pengembalian extends CI_Controller {
 
     public function index()
     {
-        $data = array(
-            'header' => 'template/header_admin',
-            'footer' => 'template/footer_admin'
-        );
+        $pengguna = $this->session->userdata('role');
+        if ($pengguna == 'Petugas') {
+            $data = array(
+                'header' => 'template/header_admin',
+                'footer' => 'template/footer_admin'
+            );
 
-        return $this->load->view('pengembalian/pengembalian',$data);
+            return $this->load->view('pengembalian/pengembalian',$data);
+        }else{
+			$this->session->set_flashdata('msg','Login sebagai petugas');
+			redirect('login');
+		}
     }
 
     function store(){

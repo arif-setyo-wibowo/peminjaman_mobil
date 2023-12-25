@@ -82,3 +82,4 @@ $route['history'] = 'Admin/History';
 //login regis
 $route['login'] = 'Admin/Login';
 $route['register'] = 'Admin/Login/register';
+$route['logout'] = 'Admin//Login/logout';

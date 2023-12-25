@@ -17,12 +17,20 @@
   <div class="login-logo">
     <a href="<?= base_url()?>assets/index2.html"><b>Rental Mobil</a>
   </div>
+    <?php if ($this->session->flashdata('msg')) { ?>
+      <div class="alert alert-success alert-dismissible fade show" role="alert" id="autoDismissAlert">
+          <?= $this->session->flashdata('msg') ?>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+    <?php } ?>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <form action="<?= base_url()?>assets/index3.html" method="post">
+      <form action="<?= base_url('login')?>" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="text" class="form-control" name="username" placeholder="Username">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -30,7 +38,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" name="password" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
