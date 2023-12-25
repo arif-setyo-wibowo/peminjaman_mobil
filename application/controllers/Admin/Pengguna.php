@@ -60,7 +60,7 @@ class Pengguna extends CI_Controller {
 				$this->session->set_flashdata('msg', 'Berhasil Mengubah Data Pengguna');
 				redirect('/pengguna');
 			}else{
-				redirect('/kategori');
+				redirect('/pengguna');
 			}
 		}else{
 			$this->session->set_flashdata('msg','Login sebagai admin');
