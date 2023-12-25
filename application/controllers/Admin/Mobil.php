@@ -75,9 +75,13 @@ class Mobil extends CI_Controller {
 
 				$this->load->library('upload', $config);
 
+				$gambar_lama = $this->input->post('gambar_lama');
+
 				if (!$this->upload->do_upload('gambar')) {
 					$gambar = '';
 				} else {
+					unlink('uploads/mobil/'.$gambar_lama);
+
 					$dataNama = $this->upload->data();
 					$gambar = $dataNama['file_name'];
 				}
@@ -118,6 +122,10 @@ class Mobil extends CI_Controller {
     public function delete($id){
 		$pengguna = $this->session->userdata('role');
         if ($pengguna == 'Admin' || $pengguna == 'Petugas') {
+			
+			$data =  $this->Mobil_M->get_one($id);
+			unlink('uploads/mobil/'.$data->gambar);
+
 			$this->Mobil_M->deleteData($id);
 			$this->session->set_flashdata('msg', 'Berhasil Menghapus Data Mobil');
 			redirect('/mobil');
@@ -135,7 +143,7 @@ class Mobil extends CI_Controller {
 				'footer' => 'template/footer_admin',
 				'mobil'  => $this->Mobil_M->get_one($id)
 			);
-
+		
 			return $this->load->view('mobil_detail',$data);
 		}else{
 			$this->session->set_flashdata('msg','Login sebagai admin');

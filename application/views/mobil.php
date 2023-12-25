@@ -67,7 +67,7 @@
                                           Detail
                                        </a>
                                        <button type="button" class="btn btn-info btn-sm"
-                                          onclick="editMobil('<?= $data->idmobil ?>','<?= $data->merk_mobil ?>','<?= $data->nama_mobil ?>','<?= $data->idkategori ?>','<?= $data->tahun_mobil ?>','<?= $data->kapasitas ?>','<?= $data->harga_sewa ?>','<?= $data->stok ?>','<?= $data->no_plat ?>','<?= $data->warna ?>','<?= $data->no_bpkb ?>')">
+                                          onclick="editMobil('<?= $data->idmobil ?>','<?= $data->merk_mobil ?>','<?= $data->nama_mobil ?>','<?= $data->idkategori ?>','<?= $data->tahun_mobil ?>','<?= $data->kapasitas ?>','<?= $data->harga_sewa ?>','<?= $data->stok ?>','<?= $data->no_plat ?>','<?= $data->warna ?>','<?= $data->gambar ?>','<?= $data->no_bpkb ?>')">
                                           <i class="fas fa-pencil-alt"></i>
                                           Edit
                                        </button>
@@ -150,6 +150,7 @@
                                  <label>Harga Sewa (Perhari)</label>
                                  <input type="number" class="form-control" name="harga_sewa" id="harga_sewa" placeholder="Masukkan Harga Sewa" required>
                                  <input type="hidden" name="idmobil" id="idmobil">
+                                 <input type="hidden" name="gambar_lama" id="gambar_lama">
                               </div>
                               <div class="form-group">
                                  <input type="submit" name="proses" id="proses" value="Tambah" class="btn btn-primary">
