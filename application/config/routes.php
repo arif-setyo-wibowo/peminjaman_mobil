@@ -63,8 +63,11 @@ $route['kategori/hapus/(:any)'] = 'Admin/Kategori/delete/$1';
 $route['mobil'] = 'Admin/Mobil';
 $route['mobil/detail'] = 'Admin/Mobil/detail';
 
-//pengguna
+//user
 $route['pengguna'] = 'Admin/Pengguna';
+$route['pengguna/tambah-edit'] = 'Admin/Pengguna/insertUpdate';
+$route['pengguna/status/(:any)/(:any)'] = 'Admin/Pengguna/updateStatus/$1/$2';
+$route['pengguna/hapus/(:any)'] = 'Admin/Pengguna/delete/$1';
 
 //peminjaman
 $route['peminjaman'] = 'Admin/Peminjaman';
