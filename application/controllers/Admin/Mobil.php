@@ -47,7 +47,7 @@ class Mobil extends CI_Controller {
 					$gambar = '';
 				} else {
 					$dataNama = $this->upload->data();
-					$gambar = uniqid() . '_' . $dataNama['file_name'];
+					$gambar = $dataNama['file_name'];
 				}
 
 				$data = [
@@ -70,6 +70,7 @@ class Mobil extends CI_Controller {
 				$config['upload_path'] 	= './uploads/mobil/';
 				$config['allowed_types'] = 'gif|jpg|jpeg|png';
 				$config['overwrite']     = FALSE;
+				$config['file_name']        = $gambar;
 				$config['encrypt_name'] = TRUE;
 
 				$this->load->library('upload', $config);
@@ -78,7 +79,7 @@ class Mobil extends CI_Controller {
 					$gambar = '';
 				} else {
 					$dataNama = $this->upload->data();
-					$gambar = uniqid() . '_' . $dataNama['file_name'];
+					$gambar = $dataNama['file_name'];
 				}
 
 				$data = [

@@ -41,8 +41,8 @@
                               </thead>
                               <tbody>
                                  <tr>
-                                    <th scope="row">Gambar</th>
-                                    <td><img style="height:200px;" src='<?=base_url('uploads/mobil/'. $mobil->gambar) ?>' alt="" srcset=""></td>
+                                    <th scope="row">Gambar </th>
+                                    <td><img style="height:200px;" src="<?= base_url('uploads/mobil/'.$mobil->gambar) ?>" alt="" srcset=""></td>
                                  </tr>
                                  <tr>
                                     <th scope="row">Mobil</th>
