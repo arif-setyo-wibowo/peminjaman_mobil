@@ -20,9 +20,10 @@ class Peminjaman extends CI_Controller {
             $data = array(
                 'header' => 'template/header_admin',
                 'footer' => 'template/footer_admin',
-				'mobil'	 => $this->Mobil_M->getMobil(),
-				'pengguna' => $this->Pengguna_M->getPenggunaUser(),
-				'peminjaman' => $this->Peminjaman_M->getJoinPinjam(),
+					'mobil'	 => $this->Mobil_M->getMobil(),
+					'pengguna' => $this->Pengguna_M->getPenggunaUser(),
+					'peminjaman' => $this->Peminjaman_M->getJoinPinjam(),
+					'judul'		=> "Data Peminjaman"
             );
 
             return $this->load->view('peminjaman',$data);

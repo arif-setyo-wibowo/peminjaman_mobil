@@ -22,7 +22,8 @@ class Dashboard extends CI_Controller {
             'mobildata' => $this->Mobil_M->countAllData(),
             'mobil' => $this->Mobil_M->getMobildanKategori(),
             'header' => 'template/header_admin',
-            'footer' => 'template/footer_admin'
+            'footer' => 'template/footer_admin',
+			'judul'	=> "Dashboard"
         );
 
         return $this->load->view('dashboard',$data);
@@ -30,7 +31,8 @@ class Dashboard extends CI_Controller {
 
     function detail($id){
         $data = array(
-            'mobil'  => $this->Mobil_M->get_one($id)
+            'mobil'  => $this->Mobil_M->get_one($id),
+			'judul'	=> "Dashboard - Detail Mobil"
         );
 
         return $this->load->view('mobil_detail_dashboard',$data);

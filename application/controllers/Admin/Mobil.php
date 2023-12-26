@@ -21,6 +21,7 @@ class Mobil extends CI_Controller {
 				'footer' 	=> 'template/footer_admin',
 				'kategori'	=> $this->Kategori_M->getKategori(),
 				'mobil'		=> $this->Mobil_M->getMobil(),
+				'judul'		=> "Data Mobil"
 			);
 	
 			return $this->load->view('mobil',$data);
@@ -133,7 +134,8 @@ class Mobil extends CI_Controller {
 			$data = array(
 				'header' => 'template/header_admin',
 				'footer' => 'template/footer_admin',
-				'mobil'  => $this->Mobil_M->get_one($id)
+				'mobil'  => $this->Mobil_M->get_one($id),
+				'judul'		=> "Data Mobil Detail"
 			);
 		
 			return $this->load->view('mobil_detail',$data);

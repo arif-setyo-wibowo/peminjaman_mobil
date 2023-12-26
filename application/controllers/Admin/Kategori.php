@@ -18,6 +18,7 @@ class Kategori extends CI_Controller {
                 'header' 	=> 'template/header_admin',
                 'footer' 	=> 'template/footer_admin',
                 'kategori' 	=> $this->Kategori_M->getKategori(),
+				'judul'		=> "Data Kategori"
             );
     
             return $this->load->view('kategori',$data);

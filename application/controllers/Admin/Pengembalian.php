@@ -18,7 +18,8 @@ class Pengembalian extends CI_Controller {
             $data = array(
                 'header' => 'template/header_admin',
                 'footer' => 'template/footer_admin',
-				'pengembalian' => $this->Peminjaman_M->getJoinPengembalian()
+				'pengembalian' => $this->Peminjaman_M->getJoinPengembalian(),
+				'judul'		=> "Data Pengembalian"
             );
 
             return $this->load->view('pengembalian',$data);

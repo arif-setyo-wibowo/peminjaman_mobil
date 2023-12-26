@@ -21,7 +21,8 @@ class History extends CI_Controller {
                 'history' => $this->Peminjaman_M->getWherePengguna($idpengguna),
                 'header' => 'template/header_admin',
                 'footer' => 'template/footer_admin',
-				'history'=> $this->Peminjaman_M->get_one_by_user($this->session->userdata('idpengguna'))
+				'history'=> $this->Peminjaman_M->get_one_by_user($this->session->userdata('idpengguna')),
+				'judul' => "History Pinjam"
             );
 
             return $this->load->view('history',$data);

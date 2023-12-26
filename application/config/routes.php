@@ -83,11 +83,17 @@ $route['peminjaman/selesaikan/(:any)'] = 'Admin/Peminjaman/Selesai/$1';
 $route['pengembalian'] = 'Admin/Pengembalian';
 $route['pengembalian/delete/(:any)'] = 'Admin/Pengembalian/Delete/$1';
 
-//Hisotry
+//Histry
 $route['history'] = 'Admin/History';
 
 $route['invoice'] = 'Admin/Invoice';
 
+// Laporan
+$route['laporan/jumlah-barang'] = 'Admin/Laporan';
+$route['laporan/barang-dipinjam'] = 'Admin/Laporan/barangDipinjam';
+$route['laporan/barang-belum-kembali'] = 'Admin/Laporan/barangBelumKembali';
+$route['laporan/barang-sering-dipinjam'] = 'Admin/Laporan/barangSeringDipinjam';
+$route['laporan/barang-stok-habis'] = 'Admin/Laporan/stokHabis';
 
 //login regis
 $route['login'] = 'Admin/Login';

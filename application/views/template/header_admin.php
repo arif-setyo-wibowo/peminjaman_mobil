@@ -4,7 +4,7 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>Rental Mobil | Admin</title>
+   <title><?= $judul ?></title>
 
    <!-- Google Font: Source Sans Pro -->
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -45,165 +45,217 @@
                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-               <a href="<?= base_url()?>" class="nav-link">Home</a>
+               <<<<<<< HEAD <a href="<?= base_url()?>" class="nav-link">Home</a>
+                  =======
+                  <a href="<?= base_url() ?>" class="nav-link">Dashboard</a>
+                  >>>>>>> 3ddbb51 (Laporan)
             </li>
-
-            <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
-               <!-- Navbar Search -->
-               <li class="nav-item">
-                  <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                     <i class="fas fa-search"></i>
-                  </a>
-                  <div class="navbar-search-block">
-                     <form class="form-inline">
-                        <div class="input-group input-group-sm">
-                           <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                           <div class="input-group-append">
-                              <button class="btn btn-navbar" type="submit">
-                                 <i class="fas fa-search"></i>
-                              </button>
-                              <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                 <i class="fas fa-times"></i>
-                              </button>
-                           </div>
-                        </div>
-                     </form>
-                  </div>
-               </li>
-            </ul>
       </nav>
       <!-- /.navbar -->
 
       <!-- Main Sidebar Container -->
       <aside class="main-sidebar sidebar-dark-primary elevation-4">
          <!-- Brand Logo -->
-         <a href="<?= base_url()?>" class="brand-link">
-            <img src="<?= base_url()?>assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-            <span class="brand-text font-weight-light">Rental Mobil</span>
-         </a>
+         <<<<<<< HEAD <a href="<?= base_url()?>" class="brand-link">
+            =======
+            <a href="<?= base_url() ?>" class="brand-link">
+               >>>>>>> 3ddbb51 (Laporan)
+               <img src="<?= base_url()?>assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+               <span class="brand-text font-weight-light">Rental Mobil</span>
+            </a>
 
-         <!-- Sidebar -->
-         <div class="sidebar">
-            <!-- Sidebar user panel (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-               <div class="image">
-                  <img src="<?= base_url()?>assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <!-- Sidebar -->
+            <div class="sidebar">
+               <!-- Sidebar user panel (optional) -->
+               <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                  <div class="image">
+                     <img src="<?= base_url()?>assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                  </div>
+                  <div class="info">
+                     <a href="#" class="d-block"><?= $this->session->userdata('nama')?></a>
+                  </div>
                </div>
-               <div class="info">
-                  <a href="#" class="d-block"><?= $this->session->userdata('nama')?></a>
-               </div>
-            </div>
 
-            <!-- Sidebar Menu -->
-            <nav class="mt-2">
-               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                  <!-- Add icons to the links using the .nav-icon class
+               <!-- Sidebar Menu -->
+               <nav class="mt-2">
+                  <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                     <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                  <?php if ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Admin' ) : ?>
-                  <li class="nav-header">Data Input </li>
-                  <li class="nav-item">
-                     <a href="<?= base_url('kategori')?>" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                           Kategori
-                        </p>
-                     </a>
-                  </li>
+                     <?php if ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Admin' ) : ?>
+                     <li class="nav-item">
+                        <a href="<?= base_url('kategori')?>" class="nav-link">
+                           <i class="nav-icon fas fa-th"></i>
+                           <p>Kategori</p>
+                        </a>
+                     </li>
 
-                  <li class="nav-item">
-                     <a href="<?= base_url('mobil')?>" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                           Mobil
-                        </p>
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="<?= base_url('pengguna')?>" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                           Pengguna
-                        </p>
-                     </a>
-                  </li>
-                  <?php elseif ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Petugas' ) : ?>
-                  <li class="nav-header">Data Input </li>
-                  <li class="nav-item">
-                     <a href="<?= base_url('kategori')?>" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                           Kategori
-                        </p>
-                     </a>
-                  </li>
+                     <li class="nav-item">
+                        <a href="<?= base_url('mobil')?>" class="nav-link">
+                           <i class="nav-icon fas fa-car"></i>
+                           <p>
+                              Mobil
+                           </p>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a href="<?= base_url('pengguna')?>" class="nav-link">
+                           <i class="nav-icon fas fa-user"></i>
+                           <p>
+                              Pengguna
+                           </p>
+                        </a>
+                     </li>
+                     <li class="nav-header">Data Laporan </li>
+                     <li class="nav-item">
+                        <a href="<?= base_url('laporan/jumlah-barang')?>" class="nav-link">
+                           <i class="fas fa-arrow-right"></i>
+                           <p>
+                              Jumlah Barang
+                           </p>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a href="<?= base_url('laporan/barang-dipinjam')?>" class="nav-link">
+                           <i class="fas fa-arrow-right"></i>
+                           <p>
+                              Barang Dipinjam
+                           </p>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a href="<?= base_url('laporan/barang-belum-kembali')?>" class="nav-link">
+                           <i class="fas fa-arrow-right"></i>
+                           <p>
+                              Barang Belum Kembali
+                           </p>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a href="<?= base_url('laporan/barang-sering-dipinjam')?>" class="nav-link">
+                           <i class="fas fa-arrow-right"></i>
+                           <p>
+                              Barang Sering Dipinjam
+                           </p>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a href="<?= base_url('laporan/barang-stok-habis')?>" class="nav-link">
+                           <i class="fas fa-arrow-right"></i>
+                           <p>
+                              Barang Stok Habis
+                           </p>
+                        </a>
+                     </li>
+                     <?php elseif ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Petugas' ) : ?>
+                     <li class="nav-item">
+                        <a href="<?= base_url('kategori')?>" class="nav-link">
+                           <i class="nav-icon fas fa-th"></i>
+                           <p>Kategori</p>
+                        </a>
+                     </li>
 
-                  <li class="nav-item">
-                     <a href="<?= base_url('mobil')?>" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                           Mobil
-                        </p>
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="<?= base_url('pengguna')?>" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                           Pengguna
-                        </p>
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="<?= base_url('peminjaman')?>" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                           Peminjaman
-                        </p>
-                     </a>
-                  </li>
-                  <li class="nav-header">Data Report </li>
-                  <li class="nav-item">
-                     <a href="<?= base_url('pengembalian')?>" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                           Pengembalian
-                        </p>
-                     </a>
-                  </li>
-                  <?php elseif ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'User' ) : ?>
-                  <li class="nav-item">
-                     <a href="<?= base_url('history')?>" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                           History
-                        </p>
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="<?= base_url('invoice')?>" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                           Invoice
-                        </p>
-                     </a>
-                  </li>
-                  <?php else : ?>
-                  <ol class="breadcrumb float-sm-right">
-                     <li class="breadcrumb-item"><a href="<?= base_url('login')?>" class="btn btn-primary">Login</a></li>
-                  </ol>
-                  <?php endif;?>
-                  <li class="nav-item">
-                     <a href="<?= base_url('logout')?>" class="nav-link">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <p>
-                           Logout
-                        </p>
-                     </a>
-                  </li>
-               </ul>
-            </nav>
-            <!-- /.sidebar-menu -->
-         </div>
-         <!-- /.sidebar -->
+                     <li class="nav-item">
+                        <a href="<?= base_url('mobil')?>" class="nav-link">
+                           <i class="nav-icon fas fa-car"></i>
+                           <p>
+                              Mobil
+                           </p>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a href="<?= base_url('pengguna')?>" class="nav-link">
+                           <i class="nav-icon fas fa-user"></i>
+                           <p>
+                              Pengguna
+                           </p>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a href="<?= base_url('peminjaman')?>" class="nav-link">
+                           <i class="fas fa-file-export"></i>
+                           <p>
+                              Peminjaman
+                           </p>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a href="<?= base_url('pengembalian')?>" class="nav-link">
+                           <i class="fas fa-file-import"></i>
+                           <p>
+                              Pengembalian
+                           </p>
+                        </a>
+                     </li>
+                     <li class="nav-header">Data Laporan </li>
+                     <li class="nav-item">
+                        <a href="<?= base_url('laporan/jumlah-barang')?>" class="nav-link">
+                           <i class="fas fa-arrow-right"></i>
+                           <p>
+                              Jumlah Barang
+                           </p>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a href="<?= base_url('laporan/barang-dipinjam')?>" class="nav-link">
+                           <i class="fas fa-arrow-right"></i>
+                           <p>
+                              Barang Dipinjam
+                           </p>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a href="<?= base_url('laporan/barang-belum-kembali')?>" class="nav-link">
+                           <i class="fas fa-arrow-right"></i>
+                           <p>
+                              Barang Belum Kembali
+                           </p>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a href="<?= base_url('laporan/barang-sering-dipinjam')?>" class="nav-link">
+                           <i class="fas fa-arrow-right"></i>
+                           <p>
+                              Barang Sering Dipinjam
+                           </p>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a href="<?= base_url('laporan/barang-stok-habis')?>" class="nav-link">
+                           <i class="fas fa-arrow-right"></i>
+                           <p>
+                              Barang Stok Habis
+                           </p>
+                        </a>
+                     </li>
+                     <?php elseif ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'User' ) : ?>
+                     <li class="nav-item">
+                        <a href="<?= base_url('history')?>" class="nav-link">
+                           <i class="fas fa-history"></i>
+                           <p>History</p>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a href="<?= base_url('invoice')?>" class="nav-link">
+                           <i class="nav-icon fas fa-th"></i>
+                           <p>
+                              Invoice
+                           </p>
+                        </a>
+                     </li>
+                     <?php else : ?>
+                     <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="<?= base_url('login')?>" class="btn btn-primary">Login</a></li>
+                     </ol>
+                     <?php endif;?>
+                     <li class="nav-item">
+                        <a href="<?= base_url('logout')?>" class="nav-link">
+                           <i class="fas fa-sign-out-alt"></i>
+                           <p>Logout</p>
+                        </a>
+                     </li>
+                  </ul>
+               </nav>
+               <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
       </aside>

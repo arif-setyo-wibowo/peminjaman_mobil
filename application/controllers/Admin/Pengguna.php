@@ -19,6 +19,7 @@ class Pengguna extends CI_Controller {
 				'header' 	=> 'template/header_admin',
 				'footer' 	=> 'template/footer_admin',
 				'pengguna'	=> $this->Pengguna_M->getPengguna(),
+				'judul'		=> "Data Pengguna"
 			);
 
 			return $this->load->view('pengguna',$data);
