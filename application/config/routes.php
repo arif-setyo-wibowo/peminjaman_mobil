@@ -76,9 +76,12 @@ $route['pengguna/hapus/(:any)'] = 'Admin/Pengguna/delete/$1';
 
 //peminjaman
 $route['peminjaman'] = 'Admin/Peminjaman';
+$route['peminjaman/tambah-edit'] = 'Admin/Peminjaman/insertUpdate';
+$route['peminjaman/selesaikan/(:any)'] = 'Admin/Peminjaman/Selesai/$1';
 
 //pengembalian
 $route['pengembalian'] = 'Admin/Pengembalian';
+$route['pengembalian/delete/(:any)'] = 'Admin/Pengembalian/Delete/$1';
 
 //Hisotry
 $route['history'] = 'Admin/History';

@@ -13,6 +13,14 @@ class Pengguna_M extends CI_Model
         return $this->db->get()->result();
     }
 
+    function getPenggunaUser()
+    {
+        $this->db->select('*');
+        $this->db->from('t_pengguna');
+        $this->db->where('level', 'User');
+        return $this->db->get()->result();
+    }
+
     function insertData($data)
     {
         $this->db->insert('t_pengguna', $data);
