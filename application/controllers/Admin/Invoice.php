@@ -21,7 +21,8 @@ class Invoice extends CI_Controller {
             $data = array(
                 'history' => $this->Peminjaman_M->getWherePengguna($idpengguna),
                 'header' => 'template/header_admin',
-                'footer' => 'template/footer_admin'
+                'footer' => 'template/footer_admin',
+				'judul' => 'Data Invoice'
             );
 
             return $this->load->view('invoice',$data);
