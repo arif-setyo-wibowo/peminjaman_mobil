@@ -26,7 +26,7 @@ class Mobil extends CI_Controller {
 			return $this->load->view('mobil',$data);
         }else{
             $this->session->set_flashdata('msg','Login sebagai admin');
-            redirect('login');
+            redirect('/');
         }
     }
 
@@ -107,16 +107,8 @@ class Mobil extends CI_Controller {
 			}
 		}else{
 			$this->session->set_flashdata('msg','Login sebagai admin');
-			redirect('login');
+			redirect('/');
 		}
-    }
-
-    function edit(){
-        
-    }
-
-    function update(){
-        
     }
 
     public function delete($id){
@@ -131,7 +123,7 @@ class Mobil extends CI_Controller {
 			redirect('/mobil');
 		}else{
 			$this->session->set_flashdata('msg','Login sebagai admin');
-			redirect('login');
+			redirect('/');
 		}
     }
 
@@ -147,7 +139,7 @@ class Mobil extends CI_Controller {
 			return $this->load->view('mobil_detail',$data);
 		}else{
 			$this->session->set_flashdata('msg','Login sebagai admin');
-			redirect('login');
+			redirect('/');
 		}
     }
 }

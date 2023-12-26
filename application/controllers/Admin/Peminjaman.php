@@ -28,7 +28,7 @@ class Peminjaman extends CI_Controller {
             return $this->load->view('peminjaman',$data);
         }else{
 			$this->session->set_flashdata('msg','Login sebagai petugas');
-			redirect('login');
+			redirect('/');
 		}
     }
 
@@ -86,27 +86,33 @@ class Peminjaman extends CI_Controller {
             }
         }else{
             $this->session->set_flashdata('msg','Login sebagai admin');
-            redirect('login');
+            redirect('/');
         }
     }
 
     function Selesai($id){
-        $data = [
-			'status' => 1,
-			'tgl_kembali' => date('Y-m-d'),
-		];
-		
-		// Mengembalikan Stok Mobil
-		$datapinjam = $this->Peminjaman_M->get_one($id);
-		$datamobil = $this->Mobil_M->get_one($datapinjam->idmobil);
-		$mobilupdate = [
-				'stok' => $datamobil->stok + $datapinjam->jumlah,
+		$pengguna = $this->session->userdata('role');
+        if ($pengguna == 'Admin' || $pengguna == 'Petugas') {
+			$data = [
+				'status' => 1,
+				'tgl_kembali' => date('Y-m-d'),
 			];
-		$this->Mobil_M->updateData($datapinjam->idmobil, $mobilupdate);
+			
+			// Mengembalikan Stok Mobil
+			$datapinjam = $this->Peminjaman_M->get_one($id);
+			$datamobil = $this->Mobil_M->get_one($datapinjam->idmobil);
+			$mobilupdate = [
+					'stok' => $datamobil->stok + $datapinjam->jumlah,
+				];
+			$this->Mobil_M->updateData($datapinjam->idmobil, $mobilupdate);
 
-		$this->Peminjaman_M->updateData($id,$data);
-		$this->session->set_flashdata('msg', 'Berhasil Menyelesaikan Peminjaman');
-        redirect('/peminjaman');
+			$this->Peminjaman_M->updateData($id,$data);
+			$this->session->set_flashdata('msg', 'Berhasil Menyelesaikan Peminjaman');
+			redirect('/peminjaman');
+		}else{
+			$this->session->set_flashdata('msg','Login sebagai admin');
+			redirect('/');
+		}
     }
 }
 

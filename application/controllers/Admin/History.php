@@ -24,7 +24,7 @@ class History extends CI_Controller {
             return $this->load->view('history',$data);
         }else{
             $this->session->set_flashdata('msg','Login sebagai user');
-            redirect('login');
+            redirect('/');
         }
     }
 }

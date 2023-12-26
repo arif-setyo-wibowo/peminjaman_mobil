@@ -24,14 +24,20 @@ class Pengembalian extends CI_Controller {
             return $this->load->view('pengembalian',$data);
         }else{
 			$this->session->set_flashdata('msg','Login sebagai petugas');
-			redirect('login');
+			redirect('/');
 		}
     }
 
     function Delete($id){
-		$this->Peminjaman_M->deleteData($id);
-		$this->session->set_flashdata('msg', 'Berhasil Menghapus Data');
-		redirect('pengembalian');
+		$pengguna = $this->session->userdata('role');
+			if ($pengguna == 'Petugas') {
+			$this->Peminjaman_M->deleteData($id);
+			$this->session->set_flashdata('msg', 'Berhasil Menghapus Data');
+			redirect('pengembalian');
+		}else{
+			$this->session->set_flashdata('msg','Login sebagai petugas');
+			redirect('/');
+		}
     }
 }
 

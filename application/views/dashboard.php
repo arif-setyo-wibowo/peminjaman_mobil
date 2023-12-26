@@ -46,34 +46,34 @@
                      <h1 class="m-0">Selamat Datang Di Aplikasi Peminjaman</h1>
                   </div><!-- /.col -->
                   <div class="col-sm-6">
-                    <?php if ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Admin' ) : ?>
-                      <ol class="breadcrumb float-sm-right ml-2">
+                     <?php if ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Admin' ) : ?>
+                     <ol class="breadcrumb float-sm-right ml-2">
                         <li class="breadcrumb-item"><a href="<?= base_url('kategori')?>" class="btn btn-primary">Dashboard Admin</a></li>
-                      </ol>&nbsp;
-                      <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= base_url('logout')?>" class="btn btn-danger">Logout</a></li>
-                      </ol>
-                    <?php elseif ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Petugas' ) : ?>
-                      <ol class="breadcrumb float-sm-right ml-2">
-                        <li class="breadcrumb-item"><a href="<?= base_url('kategori')?>" class="btn btn-success">Dashboard Petugas</a></li>
-                      </ol>
-                      <ol class="breadcrumb float-sm-right">
+                     </ol>&nbsp;
+                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url('logout')?>" class="btn btn-danger">Logout</a></li>
                      </ol>
-                    <?php elseif ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'User' ) : ?>
-                      <ol class="breadcrumb float-sm-right ml-2">
+                     <?php elseif ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Petugas' ) : ?>
+                     <ol class="breadcrumb float-sm-right ml-2">
+                        <li class="breadcrumb-item"><a href="<?= base_url('kategori')?>" class="btn btn-success">Dashboard Petugas</a></li>
+                     </ol>
+                     <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="<?= base_url('logout')?>" class="btn btn-danger">Logout</a></li>
+                     </ol>
+                     <?php elseif ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'User' ) : ?>
+                     <ol class="breadcrumb float-sm-right ml-2">
                         <li class="breadcrumb-item"><a href="<?= base_url('history')?>" class="btn btn-success">Dashboard User</a></li>
-                      </ol>
-                      <ol class="breadcrumb float-sm-right">
-                          <li class="breadcrumb-item"><a href="<?= base_url('logout')?>" class="btn btn-danger">Logout</a></li>
-                      </ol>
-                    <?php else : ?> 
-                      <ol class="breadcrumb float-sm-right">
+                     </ol>
+                     <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="<?= base_url('logout')?>" class="btn btn-danger">Logout</a></li>
+                     </ol>
+                     <?php else : ?>
+                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url('login')?>" class="btn btn-primary">Login</a></li>
-                      </ol>
-                    <?php endif;?>
-                   
-                    
+                     </ol>
+                     <?php endif;?>
+
+
                   </div><!-- /.col -->
                </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -84,91 +84,91 @@
             <div class="container-fluid">
                <!-- Small boxes (Stat box) -->
                <?php if ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Admin' ) : ?>
-                  <div class="row">
-                     <div class="col-lg-4 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info">
-                           <div class="inner">
-                              <h3><?= $mobildata ?></h3>
-                              <p>Total Mobil</p>
-                           </div>
-                           <div class="icon">
-                              <i class="ion ion-bag"></i>
-                           </div>
+               <div class="row">
+                  <div class="col-lg-4 col-6">
+                     <!-- small box -->
+                     <div class="small-box bg-info">
+                        <div class="inner">
+                           <h3><?= $mobildata ?></h3>
+                           <p>Total Mobil</p>
+                        </div>
+                        <div class="icon">
+                           <i class="ion ion-bag"></i>
                         </div>
                      </div>
-                     <!-- ./col -->
-                     <div class="col-lg-4 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-success">
-                           <div class="inner">
-                              <h3>13</h3>
-                              <p>Total Pinjaman</p>
-                           </div>
-                           <div class="icon">
-                              <i class="ion ion-stats-bars"></i>
-                           </div>
-                        </div>
-                     </div>
-                     <!-- ./col -->
-                     <div class="col-lg-4 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-warning">
-                           <div class="inner">
-                              <h3><?= $userdata ?></h3>
-                              <p>Total User</p>
-                           </div>
-                           <div class="icon">
-                              <i class="ion ion-person-add"></i>
-                           </div>
-                        </div>
-                     </div>
-                     <!-- ./col -->
                   </div>
-                  <!-- /.row -->
+                  <!-- ./col -->
+                  <div class="col-lg-4 col-6">
+                     <!-- small box -->
+                     <div class="small-box bg-success">
+                        <div class="inner">
+                           <h3>13</h3>
+                           <p>Total Pinjaman</p>
+                        </div>
+                        <div class="icon">
+                           <i class="ion ion-stats-bars"></i>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-lg-4 col-6">
+                     <!-- small box -->
+                     <div class="small-box bg-warning">
+                        <div class="inner">
+                           <h3><?= $userdata ?></h3>
+                           <p>Total User</p>
+                        </div>
+                        <div class="icon">
+                           <i class="ion ion-person-add"></i>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- ./col -->
+               </div>
+               <!-- /.row -->
                <?php elseif ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Petugas' ) : ?>
-                  <div class="row">
-                     <div class="col-lg-4 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info">
-                           <div class="inner">
-                              <h3><?= $mobildata ?></h3>
-                              <p>Total Mobil</p>
-                           </div>
-                           <div class="icon">
-                              <i class="ion ion-bag"></i>
-                           </div>
+               <div class="row">
+                  <div class="col-lg-4 col-6">
+                     <!-- small box -->
+                     <div class="small-box bg-info">
+                        <div class="inner">
+                           <h3><?= $mobildata ?></h3>
+                           <p>Total Mobil</p>
+                        </div>
+                        <div class="icon">
+                           <i class="ion ion-bag"></i>
                         </div>
                      </div>
-                     <!-- ./col -->
-                     <div class="col-lg-4 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-success">
-                           <div class="inner">
-                              <h3>13</h3>
-                              <p>Total Pinjaman</p>
-                           </div>
-                           <div class="icon">
-                              <i class="ion ion-stats-bars"></i>
-                           </div>
-                        </div>
-                     </div>
-                     <!-- ./col -->
-                     <div class="col-lg-4 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-warning">
-                           <div class="inner">
-                              <h3><?= $userdata ?></h3>
-                              <p>Total User</p>
-                           </div>
-                           <div class="icon">
-                              <i class="ion ion-person-add"></i>
-                           </div>
-                        </div>
-                     </div>
-                     <!-- ./col -->
                   </div>
-                  <!-- /.row -->
+                  <!-- ./col -->
+                  <div class="col-lg-4 col-6">
+                     <!-- small box -->
+                     <div class="small-box bg-success">
+                        <div class="inner">
+                           <h3>13</h3>
+                           <p>Total Pinjaman</p>
+                        </div>
+                        <div class="icon">
+                           <i class="ion ion-stats-bars"></i>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-lg-4 col-6">
+                     <!-- small box -->
+                     <div class="small-box bg-warning">
+                        <div class="inner">
+                           <h3><?= $userdata ?></h3>
+                           <p>Total User</p>
+                        </div>
+                        <div class="icon">
+                           <i class="ion ion-person-add"></i>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- ./col -->
+               </div>
+               <!-- /.row -->
                <?php endif;?>
                <div class="card">
                   <div class="card-header">
@@ -191,29 +191,29 @@
                         </thead>
                         <tbody>
                            <?php $no=1; foreach($mobil as $data) : ?>
-                              <tr>
-                                 <td><?= $no++ ?></td>
-                                 <td><?= $data->nama_mobil; ?></td>
-                                 <td><?= $data->tahun_mobil; ?></td>
-                                 <td><?= $data->warna; ?></td>
-                                 <td><img style="height:200px;" src='<?=base_url('uploads/mobil/'. $data->gambar) ?>' alt="" srcset=""></td>
-                                 <td><?= rupiah($data->harga_sewa); ?></td>
-                                 <td><?= $data->stok; ?></td>
-                                 <td>
-                                    <a class="btn btn-primary btn-sm" href="<?= base_url('detail_mobil/'.$data->idmobil) ?>">
-                                          <i class="fas fa-eye">
-                                          </i>
-                                          Detail
-                                       </a>
-                                 </td>
-                              </tr>
+                           <tr>
+                              <td><?= $no++ ?></td>
+                              <td><?= $data->nama_mobil; ?></td>
+                              <td><?= $data->tahun_mobil; ?></td>
+                              <td><?= $data->warna; ?></td>
+                              <td><img style="height:150px;" src='<?=base_url('uploads/mobil/'. $data->gambar) ?>' alt="" srcset=""></td>
+                              <td><?= rupiah($data->harga_sewa); ?></td>
+                              <td><?= $data->stok; ?></td>
+                              <td>
+                                 <a class="btn btn-primary btn-sm" href="<?= base_url('detail_mobil/'.$data->idmobil) ?>">
+                                    <i class="fas fa-eye">
+                                    </i>
+                                    Detail
+                                 </a>
+                              </td>
+                           </tr>
                            <?php endforeach; ?>
                         </tbody>
                      </table>
                   </div>
-                                <!-- /.card-body -->
+                  <!-- /.card-body -->
                </div>
-                            <!-- /.card -->
+               <!-- /.card -->
             </div><!-- /.container-fluid -->
          </section>
          <!-- /.content -->
@@ -232,55 +232,55 @@
          <!-- Control sidebar content goes here -->
       </aside>
       <!-- /.control-sidebar -->
-      </div>
-      <!-- ./wrapper -->
-      <!-- jQuery -->
-      <script src="<?= base_url()?>assets/plugins/jquery/jquery.min.js"></script>
-      <!-- jQuery UI 1.11.4 -->
-      <script src="<?= base_url()?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-      <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-      <script>
-         $.widget.bridge('uibutton', $.ui.button)
-      </script>
-      <!-- Bootstrap 4 -->
-      <script src="<?= base_url()?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-      <!-- Sparkline -->
-      <script src="<?= base_url()?>assets/plugins/sparklines/sparkline.js"></script>
-      <!-- Tempusdominus Bootstrap 4 -->
-      <script src="<?= base_url()?>assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-      <!-- Summernote -->
-      <script src="<?= base_url()?>assets/plugins/summernote/summernote-bs4.min.js"></script>
-      <!-- overlayScrollbars -->
-      <script src="<?= base_url()?>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-      <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-      <script src="<?= base_url()?>assets/dist/js/pages/dashboard.js"></script>
+   </div>
+   <!-- ./wrapper -->
+   <!-- jQuery -->
+   <script src="<?= base_url()?>assets/plugins/jquery/jquery.min.js"></script>
+   <!-- jQuery UI 1.11.4 -->
+   <script src="<?= base_url()?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+   <script>
+   $.widget.bridge('uibutton', $.ui.button)
+   </script>
+   <!-- Bootstrap 4 -->
+   <script src="<?= base_url()?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+   <!-- Sparkline -->
+   <script src="<?= base_url()?>assets/plugins/sparklines/sparkline.js"></script>
+   <!-- Tempusdominus Bootstrap 4 -->
+   <script src="<?= base_url()?>assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+   <!-- Summernote -->
+   <script src="<?= base_url()?>assets/plugins/summernote/summernote-bs4.min.js"></script>
+   <!-- overlayScrollbars -->
+   <script src="<?= base_url()?>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+   <script src="<?= base_url()?>assets/dist/js/pages/dashboard.js"></script>
 
-      <!-- DataTables  & Plugins -->
-      <script src="<?= base_url()?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
-      <script src="<?= base_url()?>assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-      <script src="<?= base_url()?>assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-      <script src="<?= base_url()?>assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-      <script src="<?= base_url()?>assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-      <script src="<?= base_url()?>assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-      <script src="<?= base_url()?>assets/plugins/jszip/jszip.min.js"></script>
-      <script src="<?= base_url()?>assets/plugins/pdfmake/pdfmake.min.js"></script>
-      <script src="<?= base_url()?>assets/plugins/pdfmake/vfs_fonts.js"></script>
-      <script src="<?= base_url()?>assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-      <script src="<?= base_url()?>assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-      <script src="<?= base_url()?>assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-      <!-- AdminLTE App -->
-      <script src="<?= base_url()?>assets/dist/js/adminlte.min.js"></script>
-      <script src="<?= base_url()?>assets/custom.js"></script>
-      <script>
-      $(function() {
-         $("#example1").DataTable({
-            "responsive": true,
-            "lengthChange": false,
-            "autoWidth": false,
-            "buttons": ["csv", "excel", "pdf", "print"]
-         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-      });
-      </script>
-   </body>
+   <!-- DataTables  & Plugins -->
+   <script src="<?= base_url()?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
+   <script src="<?= base_url()?>assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+   <script src="<?= base_url()?>assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+   <script src="<?= base_url()?>assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+   <script src="<?= base_url()?>assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+   <script src="<?= base_url()?>assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+   <script src="<?= base_url()?>assets/plugins/jszip/jszip.min.js"></script>
+   <script src="<?= base_url()?>assets/plugins/pdfmake/pdfmake.min.js"></script>
+   <script src="<?= base_url()?>assets/plugins/pdfmake/vfs_fonts.js"></script>
+   <script src="<?= base_url()?>assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+   <script src="<?= base_url()?>assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+   <script src="<?= base_url()?>assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+   <!-- AdminLTE App -->
+   <script src="<?= base_url()?>assets/dist/js/adminlte.min.js"></script>
+   <script src="<?= base_url()?>assets/custom.js"></script>
+   <script>
+   $(function() {
+      $("#example1").DataTable({
+         "responsive": true,
+         "lengthChange": false,
+         "autoWidth": false,
+         "buttons": ["csv", "excel", "pdf", "print"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+   });
+   </script>
+</body>
 
-   </html>
+</html>
