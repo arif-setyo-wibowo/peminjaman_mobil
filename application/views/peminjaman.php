@@ -64,6 +64,7 @@
                                     <th>Petugas </th>
                                     <th>Tanggal Pinjam</th>
                                     <th>Mobil</th>
+                                    <th>Jumlah</th>
                                     <th>Plat</th>
                                     <th>Action</th>
                                  </tr>
@@ -77,13 +78,14 @@
                                     <td><?= $data->nama_petugas ?></td>
                                     <td><?= $data->tgl_pinjam ?></td>
                                     <td><?= $data->nama_mobil ?></td>
+                                    <td><?= $data->jumlah ?></td>
                                     <td><?= $data->no_plat ?></td>
                                     <td>
-                                       <button type="button" class="btn btn-info btn-sm" onclick="editPinjam('<?= $data->idpinjam ?>','<?= $data->idpengguna ?>','<?= $data->idmobil ?>','<?= $data->tgl_pinjam ?>')">
+                                       <button type="button" class="btn btn-info btn-sm" onclick="editPinjam('<?= $data->idpinjam ?>','<?= $data->idpengguna ?>','<?= $data->idmobil ?>','<?= $data->tgl_pinjam ?>','<?= $data->jumlah ?>')">
                                           <i class="fas fa-pencil-alt"></i>
                                           Edit
                                        </button>
-                                       <a href="<?= base_url('peminjaman/selesaikan/'. $data->idpinjam) ?>" class="btn btn-success btn-sm">Selesaikan</a>
+                                       <a href="<?= base_url('peminjaman/selesaikan/'. $data->idpinjam) ?>" class="btn btn-success btn-sm"><i class="fas fa-check"></i> Selesaikan</a>
                                     </td>
                                  </tr>
                                  <?php endforeach; ?>
@@ -103,16 +105,22 @@
                               </div>
                               <div class="form-group">
                                  <label for="exampleInputEmail1">Mobil</label>
-                                 <select name="idmobil" id="idmobil" class="form-control" required>
+                                 <select name="idmobil" id="idmobil" class="form-control" required onchange="ubahPilihan()">
                                     <option value selected disabled>Pilih Mobil</option>
                                     <?php foreach ($mobil as $data) :?>
-                                    <option value="<?= $data->idmobil ?>"><?= $data->nama_mobil. ' - ' . $data->harga_sewa ?> </option>
+                                    <option value="<?= $data->idmobil ?>" data-stok="<?= $data->stok ?>"><?= $data->nama_mobil. ' - Rp ' . number_format($data->harga_sewa, 0, ',', '.'). ' /Hari' ?> </option>
                                     <?php endforeach?>
                                  </select>
                               </div>
                               <div class="form-group">
                                  <label for="exampleInputEmail1">Tanggal Pinjam</label>
                                  <input type="date" class="form-control" name="tgl_pinjam" id="tgl_pinjam" placeholder="Masukkan tanggal pinjam" required>
+                              </div>
+                              <div class="form-group">
+                                 <label>Jumlah Barang</label>
+                                 <select name="jumlah" id="jumlah" class="form-control" required>
+                                    <option disabled selected>Pilih Jumlah</option>
+                                 </select>
                               </div>
                               <div class="form-group">
                                  <input type="hidden" name="idpinjam" id="idpinjam">

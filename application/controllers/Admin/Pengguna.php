@@ -24,7 +24,7 @@ class Pengguna extends CI_Controller {
 			return $this->load->view('pengguna',$data);
 		}else{
             $this->session->set_flashdata('msg','Login sebagai admin');
-            redirect('login');
+            redirect('/');
         }
     }
 
@@ -64,7 +64,7 @@ class Pengguna extends CI_Controller {
 			}
 		}else{
 			$this->session->set_flashdata('msg','Login sebagai admin');
-			redirect('login');
+			redirect('/');
 		}
     }
 
@@ -79,7 +79,7 @@ class Pengguna extends CI_Controller {
 			redirect('/pengguna');
 		}else{
 			$this->session->set_flashdata('msg','Login sebagai admin');
-			redirect('login');
+			redirect('/');
 		}
 	}
 
@@ -91,7 +91,7 @@ class Pengguna extends CI_Controller {
 			redirect('/pengguna');
 		}else{
 			$this->session->set_flashdata('msg','Login sebagai admin');
-			redirect('login');
+			redirect('/');
 		}
     }
 }

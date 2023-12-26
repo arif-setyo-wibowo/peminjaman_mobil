@@ -54,7 +54,7 @@
                                  </tr>
                                  <tr>
                                     <th scope="row">Harga Perhari</th>
-                                    <td><?= rupiah($mobil->harga_sewa) ?></td>
+                                    <td><?= "Rp " . number_format($mobil->harga_sewa, 0, ',', '.') ?></td>
                                  </tr>
                                  <tr>
                                     <th scope="row">Kategori</th>

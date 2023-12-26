@@ -45,6 +45,25 @@ class Peminjaman_M extends CI_Model
         $this->db->insert('t_peminjaman', $data);
     }
 
+		function get_one($id)
+    {
+        $this->db->select('*');
+        $this->db->from('t_peminjaman');
+        $this->db->where('idpinjam', $id);
+        return $this->db->get()->row();
+    }
+
+		function get_one_by_user($id)
+    {
+				$this->db->select('peminjaman.*, pengguna.nama AS nama_pengguna, petugas.nama AS nama_petugas, t_mobil.nama_mobil, t_mobil.no_plat, t_mobil.harga_sewa');
+				$this->db->from('t_peminjaman AS peminjaman');
+				$this->db->join('t_pengguna AS pengguna', 'pengguna.idpengguna = peminjaman.idpengguna');
+				$this->db->join('t_pengguna AS petugas', 'petugas.idpengguna = peminjaman.idpetugas');
+				$this->db->join('t_mobil', 't_mobil.idmobil = peminjaman.idmobil');
+				$this->db->where('peminjaman.idpengguna', $id);
+				return $this->db->get()->result();
+    }
+
     function updateData($id, $data)
     {
         $this->db->where('idpinjam', $id);

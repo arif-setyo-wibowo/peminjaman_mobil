@@ -46,34 +46,34 @@
                      <h1 class="m-0">Selamat Datang Di Aplikasi Peminjaman</h1>
                   </div><!-- /.col -->
                   <div class="col-sm-6">
-                    <?php if ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Admin' ) : ?>
-                      <ol class="breadcrumb float-sm-right">
+                     <?php if ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Admin' ) : ?>
+                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url('kategori')?>" class="btn btn-primary">Dashboard Admin</a></li>
-                      </ol>&nbsp;
-                      <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= base_url('logout')?>" class="btn btn-danger">Logout</a></li>
-                      </ol>
-                    <?php elseif ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Petugas' ) : ?>
-                      <ol class="breadcrumb float-sm-right ml-2">
-                        <li class="breadcrumb-item"><a href="<?= base_url('kategori')?>" class="btn btn-success">Dashboard Petugas</a></li>
-                      </ol>
-                      <ol class="breadcrumb float-sm-right">
+                     </ol>&nbsp;
+                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url('logout')?>" class="btn btn-danger">Logout</a></li>
                      </ol>
-                    <?php elseif ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'User' ) : ?>
-                      <ol class="breadcrumb float-sm-right ml-2">
+                     <?php elseif ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Petugas' ) : ?>
+                     <ol class="breadcrumb float-sm-right ml-2">
+                        <li class="breadcrumb-item"><a href="<?= base_url('kategori')?>" class="btn btn-success">Dashboard Petugas</a></li>
+                     </ol>
+                     <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="<?= base_url('logout')?>" class="btn btn-danger">Logout</a></li>
+                     </ol>
+                     <?php elseif ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'User' ) : ?>
+                     <ol class="breadcrumb float-sm-right ml-2">
                         <li class="breadcrumb-item"><a href="<?= base_url('history')?>" class="btn btn-success">Dashboard User</a></li>
-                      </ol>
-                      <ol class="breadcrumb float-sm-right">
-                          <li class="breadcrumb-item"><a href="<?= base_url('logout')?>" class="btn btn-danger">Logout</a></li>
-                      </ol>
-                    <?php else : ?> 
-                      <ol class="breadcrumb float-sm-right">
+                     </ol>
+                     <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="<?= base_url('logout')?>" class="btn btn-danger">Logout</a></li>
+                     </ol>
+                     <?php else : ?>
+                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url('login')?>" class="btn btn-primary">Login</a></li>
-                      </ol>
-                    <?php endif;?>
-                   
-                    
+                     </ol>
+                     <?php endif;?>
+
+
                   </div><!-- /.col -->
                </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -132,7 +132,7 @@
                                           </tr>
                                           <tr>
                                              <th scope="row">Harga Perhari</th>
-                                             <td><?= rupiah($mobil->harga_sewa) ?></td>
+                                             <td><?= "Rp " . number_format($mobil->harga_sewa, 0, ',', '.') ?></td>
                                           </tr>
                                           <tr>
                                              <th scope="row">Kategori</th>
@@ -159,20 +159,20 @@
 
 
 
-      <!-- /.content-wrapper -->
-      <footer class="main-footer">
-         <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-         All rights reserved.
-         <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.2.0
-         </div>
-      </footer>
+         <!-- /.content-wrapper -->
+         <footer class="main-footer">
+            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+               <b>Version</b> 3.2.0
+            </div>
+         </footer>
 
-      <!-- Control Sidebar -->
-      <aside class="control-sidebar control-sidebar-dark">
-         <!-- Control sidebar content goes here -->
-      </aside>
-      <!-- /.control-sidebar -->
+         <!-- Control Sidebar -->
+         <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+         </aside>
+         <!-- /.control-sidebar -->
       </div>
       <!-- ./wrapper -->
       <!-- jQuery -->
@@ -181,7 +181,7 @@
       <script src="<?= base_url()?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
       <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
       <script>
-         $.widget.bridge('uibutton', $.ui.button)
+      $.widget.bridge('uibutton', $.ui.button)
       </script>
       <!-- Bootstrap 4 -->
       <script src="<?= base_url()?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -222,6 +222,6 @@
          }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
       });
       </script>
-   </body>
+</body>
 
-   </html>
+</html>

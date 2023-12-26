@@ -23,7 +23,7 @@ class Kategori extends CI_Controller {
             return $this->load->view('kategori',$data);
         }else{
             $this->session->set_flashdata('msg','Login sebagai admin');
-            redirect('login');
+            redirect('/');
         }
        
     }
@@ -50,7 +50,7 @@ class Kategori extends CI_Controller {
             }
         }else{
             $this->session->set_flashdata('msg','Login sebagai admin');
-            redirect('login');
+            redirect('/');
         }
     }
 
@@ -62,7 +62,7 @@ class Kategori extends CI_Controller {
             redirect('/kategori');
         }else{
             $this->session->set_flashdata('msg','Login sebagai admin');
-            redirect('login');
+            redirect('/');
         }
     }
 }

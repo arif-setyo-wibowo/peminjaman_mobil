@@ -94,20 +94,43 @@ $("#tambah-edit-tab").on("click", function () {
 });
 
 // Edit Pinjam
-function editPinjam(id, pengguna, idmobil, tglpinjam) {
+function editPinjam(id, pengguna, idmobil, tglpinjam, jumlah) {
 	$('[href="#tambah-edit"]').tab("show");
 	$("#idpinjam").val(id);
 	$("#idpengguna").val(pengguna);
-	$("#idmobil").val(idmobil);
 	$("#tgl_pinjam").val(tglpinjam);
 	$("#proses").val("Update");
 }
 
-// Hapus Value Pengguna
+//Menampilkan Stok
+function ubahPilihan() {
+	var selectMobil = document.getElementById("idmobil");
+	var selectedOption = selectMobil.options[selectMobil.selectedIndex];
+	var stokMobil = selectedOption.getAttribute("data-stok");
+
+	var selectJumlah = document.getElementById("jumlah");
+	selectJumlah.innerHTML = "";
+
+	var defaultOption = document.createElement("option");
+	defaultOption.value = "";
+	defaultOption.text = "Pilih Jumlah";
+	defaultOption.selected = true;
+	defaultOption.disabled = true;
+	selectJumlah.appendChild(defaultOption);
+
+	for (var i = 1; i <= stokMobil; i++) {
+		var option = document.createElement("option");
+		option.value = i;
+		option.text = i;
+		selectJumlah.appendChild(option);
+	}
+}
+
+// Hapus Value Pinjam
 $("#tambah-edit-tab").on("click", function () {
 	$("#idpinjam").val();
 	$("#idpengguna").val();
 	$("#idmobil").val();
-	$("#tgl_pinjam").val();
+	$("#tgl_pinjam").val("");
 	$("#proses").val("Tambah");
 });
