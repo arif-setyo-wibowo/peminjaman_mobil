@@ -54,7 +54,7 @@
                                  </tr>
                                  <tr>
                                     <th scope="row">Harga Perhari</th>
-                                    <td><?= $mobil->harga_sewa ?></td>
+                                    <td><?= rupiah($mobil->harga_sewa) ?></td>
                                  </tr>
                                  <tr>
                                     <th scope="row">Kategori</th>

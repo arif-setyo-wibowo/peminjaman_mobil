@@ -86,6 +86,8 @@ $route['pengembalian/delete/(:any)'] = 'Admin/Pengembalian/Delete/$1';
 //Hisotry
 $route['history'] = 'Admin/History';
 
+$route['invoice'] = 'Admin/Invoice';
+
 
 //login regis
 $route['login'] = 'Admin/Login';

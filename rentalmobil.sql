@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 25 Des 2023 pada 16.14
+-- Waktu pembuatan: 26 Des 2023 pada 06.53
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -20,19 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `rentalmobil`
 --
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `t_detailpeminjaman`
---
-
-CREATE TABLE `t_detailpeminjaman` (
-  `id` int(11) NOT NULL,
-  `id_peminjaman` int(11) NOT NULL,
-  `idmobil` int(11) NOT NULL,
-  `tanggal_kembali` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -82,7 +69,8 @@ CREATE TABLE `t_mobil` (
 --
 
 INSERT INTO `t_mobil` (`idmobil`, `merk_mobil`, `nama_mobil`, `idkategori`, `tahun_mobil`, `kapasitas`, `harga_sewa`, `stok`, `no_plat`, `warna`, `gambar`, `no_bpkb`) VALUES
-(2, 'Avanza', 'Tes Mobil', 14, '1986', 9, 600000, 17, 'W 9090 NBB', 'Putih', '6589947e19fc8_210b7d9f3f89b506813973d8b12b120d.png', '0897182676123');
+(2, 'Avanza', 'Tes Mobilas', 14, '1986', 9, 600000, 19, 'W 9090 NBB', 'Putih', '6589a66b77cd6_8132211b7508b73d591392ef4b183578.png', '0897182676123'),
+(3, 'Avanza', 'Mobilkuh', 15, '1987', 9, 90000, 17, 'W 6969 NNN', 'Putih', '7d235a743ce2e3eac2e16e110f8fe536.png', '0897182676123');
 
 -- --------------------------------------------------------
 
@@ -91,14 +79,22 @@ INSERT INTO `t_mobil` (`idmobil`, `merk_mobil`, `nama_mobil`, `idkategori`, `tah
 --
 
 CREATE TABLE `t_peminjaman` (
-  `id` int(11) NOT NULL,
-  `idkostumer` int(11) NOT NULL,
-  `idadmin` int(11) NOT NULL,
+  `idpinjam` int(11) NOT NULL,
+  `idpengguna` int(11) NOT NULL,
+  `idpetugas` int(11) NOT NULL,
   `idmobil` int(11) NOT NULL,
-  `tgl_awal` int(11) NOT NULL,
-  `tgl_selesai` int(11) NOT NULL,
-  `status` int(1) NOT NULL
+  `jumlah` int(11) NOT NULL,
+  `tgl_pinjam` date NOT NULL,
+  `tgl_kembali` date DEFAULT NULL,
+  `status` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `t_peminjaman`
+--
+
+INSERT INTO `t_peminjaman` (`idpinjam`, `idpengguna`, `idpetugas`, `idmobil`, `jumlah`, `tgl_pinjam`, `tgl_kembali`, `status`) VALUES
+(30, 3, 4, 2, 10, '2023-12-26', '2023-12-26', 1);
 
 -- --------------------------------------------------------
 
@@ -122,20 +118,12 @@ CREATE TABLE `t_pengguna` (
 
 INSERT INTO `t_pengguna` (`idpengguna`, `nama`, `username`, `email`, `password`, `level`, `status`) VALUES
 (1, 'admin', 'admin', 'admin@gmail.com', '$2a$12$Pfpy258NiidKtHOf0Sb0GO2i8xjlyomcvbZBUTh3Ek6XnCnsLJufe', 'Admin', 'aktif'),
-(3, 'okkyboy', 'okkyboy', 'okkyfirman16@gmail.com', '$2y$10$wKfjKGi3TtdaHM74o4Efj.W9IFbKnpJ9cvGrN.uPaegF.myPqpES.', 'User', 'aktif'),
-(4, 'petugas', 'petugas1', 'petugas@gmail.com', '$2y$10$5PnCbyNKIpTbqaA.goVf1.jWnqkF9ToSPlDsTOVqQ3ZwMpT8wWrmC', 'Petugas', 'aktif');
+(3, 'okkyboy', 'okkyboy', 'okkyfirman16@gmail.com', '$2a$12$Pfpy258NiidKtHOf0Sb0GO2i8xjlyomcvbZBUTh3Ek6XnCnsLJufe', 'User', 'aktif'),
+(4, 'petugasasdjhjasdas', 'petugas1', 'petugas@gmail.com', '$2a$12$Pfpy258NiidKtHOf0Sb0GO2i8xjlyomcvbZBUTh3Ek6XnCnsLJufe', 'Petugas', 'aktif');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indeks untuk tabel `t_detailpeminjaman`
---
-ALTER TABLE `t_detailpeminjaman`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `f_idpeminjaman` (`id_peminjaman`),
-  ADD KEY `f_iddetailbuku` (`idmobil`);
 
 --
 -- Indeks untuk tabel `t_kategori`
@@ -153,8 +141,8 @@ ALTER TABLE `t_mobil`
 -- Indeks untuk tabel `t_peminjaman`
 --
 ALTER TABLE `t_peminjaman`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `f_idanggota` (`idkostumer`);
+  ADD PRIMARY KEY (`idpinjam`),
+  ADD KEY `f_idanggota` (`idpengguna`);
 
 --
 -- Indeks untuk tabel `t_pengguna`
@@ -167,12 +155,6 @@ ALTER TABLE `t_pengguna`
 --
 
 --
--- AUTO_INCREMENT untuk tabel `t_detailpeminjaman`
---
-ALTER TABLE `t_detailpeminjaman`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
---
 -- AUTO_INCREMENT untuk tabel `t_kategori`
 --
 ALTER TABLE `t_kategori`
@@ -182,13 +164,13 @@ ALTER TABLE `t_kategori`
 -- AUTO_INCREMENT untuk tabel `t_mobil`
 --
 ALTER TABLE `t_mobil`
-  MODIFY `idmobil` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idmobil` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `t_peminjaman`
 --
 ALTER TABLE `t_peminjaman`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `idpinjam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT untuk tabel `t_pengguna`

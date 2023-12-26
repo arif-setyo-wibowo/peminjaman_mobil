@@ -3,7 +3,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class History extends CI_Controller {
+class Invoice extends CI_Controller {
 
     
     public function __construct()
@@ -24,7 +24,7 @@ class History extends CI_Controller {
                 'footer' => 'template/footer_admin'
             );
 
-            return $this->load->view('history/history',$data);
+            return $this->load->view('invoice',$data);
         }else{
             $this->session->set_flashdata('msg','Login sebagai user');
             redirect('login');

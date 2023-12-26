@@ -8,12 +8,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Data History</h1>
+                            <h1>Data Invoice</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">History</li>
+                                <li class="breadcrumb-item active">Invoice</li>
                             </ol>
                         </div>
                     </div>
@@ -41,10 +41,9 @@
                                             <thead>
                                                 <tr>
                                                     <th>No </th>
-                                                    <th>Waktu Awal</th>
-                                                    <th>Waktu Selesai</th>
-                                                    <th>Mobil</th>
                                                     <th>Harga</th>
+                                                    <th>Petugas</th>
+                                                    <th>Mobil</th>
                                                     <th>Gambar</th>
                                                 </tr>
                                             </thead>
@@ -52,10 +51,9 @@
                                                 <?php $no=1; foreach($history as $data) : ?>
                                                 <tr>
                                                     <td><?= $no++?></td>
-                                                    <td><?= $data->tgl_pinjam?></td>
-                                                    <td><?= $data->tgl_kembali?></td>
-                                                    <td><?= $data->nama_mobil?></td>
                                                     <td><?= rupiah($data->harga_sewa)?></td>
+                                                    <td><?= $data->nama?></td>
+                                                    <td><?= $data->nama_mobil?></td>
                                                     <td><img style="height:200px;" src="<?= base_url('uploads/mobil/'.$data->gambar) ?>" alt="" srcset=""></td>
                                                 </tr>
                                                 <?php endforeach; ?>

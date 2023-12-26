@@ -37,47 +37,39 @@
          <img class="animation__shake" src="<?= base_url()?>assets/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
       </div>
 
+      <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+         <div class="container">
+            <a href="<?= base_url()?>" class="navbar-brand">
+            <span class="brand-text font-weight-light">Rental Mobil</span>
+            </a>
+
+            <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+            <!-- Left navbar links -->
+            </div>
+
+            <!-- Right navbar links -->
+            <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+               <?php if ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Admin' ) : ?>
+                  <li class="nav-item"><a href="<?= base_url('kategori')?>" class="btn btn-primary">Dashboard Admin</a></li>
+                  <li class="nav-item ml-2"><a href="<?= base_url('logout')?>" class="btn btn-danger">Logout</a></li>
+               <?php elseif ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Petugas' ) : ?>
+                  <li class="nav-item"><a href="<?= base_url('kategori')?>" class="btn btn-success">Dashboard Petugas</a></li>
+                  <li class="nav-item ml-2"><a href="<?= base_url('logout')?>" class="btn btn-danger">Logout</a></li>
+               <?php elseif ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'User' ) : ?>
+                  <li class="nav-item"><a href="<?= base_url('history')?>" class="btn btn-success">Dashboard User</a></li>
+                  <li class="nav-item ml-2"><a href="<?= base_url('logout')?>" class="btn btn-danger">Logout</a></li>
+               <?php else : ?> 
+                  <li class="nav-item"><a href="<?= base_url('login')?>" class="btn btn-primary">Login</a></li>
+               <?php endif;?>
+            </ul>
+         </div>
+      </nav>
       <div class="content-wrapper ml-0">
          <!-- Content Header (Page header) -->
-         <div class="content-header">
-            <div class="container-fluid">
-               <div class="row mb-2">
-                  <div class="col-sm-6">
-                     <h1 class="m-0">Selamat Datang Di Aplikasi Peminjaman</h1>
-                  </div><!-- /.col -->
-                  <div class="col-sm-6">
-                    <?php if ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Admin' ) : ?>
-                      <ol class="breadcrumb float-sm-right ml-2">
-                        <li class="breadcrumb-item"><a href="<?= base_url('kategori')?>" class="btn btn-primary">Dashboard Admin</a></li>
-                      </ol>&nbsp;
-                      <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= base_url('logout')?>" class="btn btn-danger">Logout</a></li>
-                      </ol>
-                    <?php elseif ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'Petugas' ) : ?>
-                      <ol class="breadcrumb float-sm-right ml-2">
-                        <li class="breadcrumb-item"><a href="<?= base_url('kategori')?>" class="btn btn-success">Dashboard Petugas</a></li>
-                      </ol>
-                      <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= base_url('logout')?>" class="btn btn-danger">Logout</a></li>
-                     </ol>
-                    <?php elseif ($this->session->userdata('idpengguna') && $this->session->userdata('role') == 'User' ) : ?>
-                      <ol class="breadcrumb float-sm-right ml-2">
-                        <li class="breadcrumb-item"><a href="<?= base_url('history')?>" class="btn btn-success">Dashboard User</a></li>
-                      </ol>
-                      <ol class="breadcrumb float-sm-right">
-                          <li class="breadcrumb-item"><a href="<?= base_url('logout')?>" class="btn btn-danger">Logout</a></li>
-                      </ol>
-                    <?php else : ?> 
-                      <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= base_url('login')?>" class="btn btn-primary">Login</a></li>
-                      </ol>
-                    <?php endif;?>
-                   
-                    
-                  </div><!-- /.col -->
-               </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-         </div>
          <!-- /.content-header -->
          <!-- Main content -->
          <section class="content">
@@ -93,7 +85,7 @@
                               <p>Total Mobil</p>
                            </div>
                            <div class="icon">
-                              <i class="ion ion-bag"></i>
+                              <i class="ion ion-android-car"></i>
                            </div>
                         </div>
                      </div>
@@ -102,7 +94,7 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                            <div class="inner">
-                              <h3>13</h3>
+                              <h3><?= $peminjamandata?></h3>
                               <p>Total Pinjaman</p>
                            </div>
                            <div class="icon">
@@ -145,7 +137,7 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                            <div class="inner">
-                              <h3>13</h3>
+                              <h3><?= $peminjamandata?></h3>
                               <p>Total Pinjaman</p>
                            </div>
                            <div class="icon">
@@ -195,8 +187,8 @@
                                  <td><?= $no++ ?></td>
                                  <td><?= $data->nama_mobil; ?></td>
                                  <td><?= $data->tahun_mobil; ?></td>
-                                 <td><?= $data->warna; ?></td>
-                                 <td><img style="height:200px;" src='<?=base_url('uploads/mobil/'. $data->gambar) ?>' alt="" srcset=""></td>
+                                 <td><?= $data->warna; ?></td> 
+                                 <td><img style="height:200px;" src="<?= base_url('uploads/mobil/'.$data->gambar) ?>" alt="" srcset=""></td>
                                  <td><?= rupiah($data->harga_sewa); ?></td>
                                  <td><?= $data->stok; ?></td>
                                  <td>

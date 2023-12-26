@@ -120,7 +120,7 @@
                                        <tbody>
                                           <tr>
                                              <th scope="row">Gambar</th>
-                                             <td><img style="height:200px;" src='<?=base_url('uploads/mobil/'. $mobil->gambar) ?>' alt="" srcset=""></td>
+                                             <td><img style="height:200px;" src="<?= base_url('uploads/mobil/'.$mobil->gambar) ?>" alt="" srcset=""></td>
                                           </tr>
                                           <tr>
                                              <th scope="row">Mobil</th>
@@ -132,7 +132,7 @@
                                           </tr>
                                           <tr>
                                              <th scope="row">Harga Perhari</th>
-                                             <td><?= $mobil->harga_sewa ?></td>
+                                             <td><?= rupiah($mobil->harga_sewa) ?></td>
                                           </tr>
                                           <tr>
                                              <th scope="row">Kategori</th>

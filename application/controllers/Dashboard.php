@@ -10,6 +10,7 @@ class Dashboard extends CI_Controller {
         parent::__construct();
         $this->load->model('Mobil_M');
         $this->load->model('Pengguna_M');
+        $this->load->model('Peminjaman_M');
     }
     
 
@@ -17,6 +18,7 @@ class Dashboard extends CI_Controller {
     {
         $data = array(
             'userdata' => $this->Pengguna_M->countAllUser(),
+            'peminjamandata' => $this->Peminjaman_M->countAllPeminjaman(),
             'mobildata' => $this->Mobil_M->countAllData(),
             'mobil' => $this->Mobil_M->getMobildanKategori(),
             'header' => 'template/header_admin',
