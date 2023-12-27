@@ -55,7 +55,9 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 //dashboard
-$route['detail_mobil/(:num)'] = 'dashboard/detail/$1';
+$route['data-kendaraan/detail_mobil/(:num)'] = 'dashboard/detail/$1';
+$route['data-kendaraan'] = 'dashboard/dataKendaraan';
+
 
 //kategori
 $route['kategori'] = 'Admin/Kategori';
@@ -96,6 +98,7 @@ $route['laporan/barang-sering-dipinjam'] = 'Admin/Laporan/barangSeringDipinjam';
 $route['laporan/barang-stok-habis'] = 'Admin/Laporan/stokHabis';
 
 //login regis
-$route['login'] = 'Admin/Login';
-$route['register'] = 'Admin/Login/register';
+$route['login-admin'] = 'Admin/Login';
+$route['login-petugas'] = 'Admin/Login/loginPetugas';
+$route['login-user'] = 'Admin/Login/loginUser';
 $route['logout'] = 'Admin//Login/logout';

@@ -21,8 +21,8 @@ class Dashboard extends CI_Controller {
             'peminjamandata' => $this->Peminjaman_M->countAllPeminjaman(),
             'mobildata' => $this->Mobil_M->countAllData(),
             'mobil' => $this->Mobil_M->getMobildanKategori(),
-            'header' => 'template/header_admin',
-            'footer' => 'template/footer_admin',
+            'header' => 'template/header_dashboard',
+            'footer' => 'template/footer_dashboard',
 			'judul'	=> "Dashboard"
         );
 
@@ -32,11 +32,27 @@ class Dashboard extends CI_Controller {
     function detail($id){
         $data = array(
             'mobil'  => $this->Mobil_M->get_one($id),
-			'judul'	=> "Dashboard - Detail Mobil"
+			'judul'	=> "Dashboard - Detail Mobil",
+			'header' => 'template/header_dashboard',
+            'footer' => 'template/footer_dashboard',
         );
 
         return $this->load->view('mobil_detail_dashboard',$data);
     }
+
+	function dataKendaraan() {
+		$data = array(
+            'userdata' => $this->Pengguna_M->countAllUser(),
+            'peminjamandata' => $this->Peminjaman_M->countAllPeminjaman(),
+            'mobildata' => $this->Mobil_M->countAllData(),
+            'mobil' => $this->Mobil_M->getMobildanKategori(),
+            'header' => 'template/header_dashboard',
+            'footer' => 'template/footer_dashboard',
+			'judul'	=> "Dashboard - Data Kendaraan"
+        );
+
+        return $this->load->view('datakendaraan',$data);
+	}
 
 }
 
