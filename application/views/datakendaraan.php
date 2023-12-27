@@ -119,7 +119,7 @@
                         <td><?= $data->nama_mobil; ?></td>
                         <td><?= $data->tahun_mobil; ?></td>
                         <td><?= $data->warna; ?></td>
-                        <td><img style="height:200px;" src="<?= base_url('uploads/mobil/'.$data->gambar) ?>" alt="" srcset=""></td>
+                        <td><img style="height:150px;" src="<?= base_url('uploads/mobil/'.$data->gambar) ?>" alt="" srcset=""></td>
                         <td><?= rupiah($data->harga_sewa); ?></td>
                         <td><?= $data->stok; ?></td>
                         <td>

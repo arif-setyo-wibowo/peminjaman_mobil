@@ -48,6 +48,7 @@
                                     <th>No </th>
                                     <th>Mobil</th>
                                     <th>Plat Nomer</th>
+                                    <th>Gambar</th>
                                     <th>Stok</th>
                                     <th>Action</th>
                                  </tr>
@@ -59,6 +60,7 @@
                                     <td><?= $no++ ?></td>
                                     <td><?= $data->nama_mobil ?></td>
                                     <td><?= $data->no_plat ?></td>
+                                    <td><img style="height:150px;" src="<?= base_url('uploads/mobil/'.$data->gambar) ?>" alt="" srcset=""></td>
                                     <td><?= $data->stok ?></td>
                                     <td>
                                        <a class="btn btn-primary btn-sm" href="<?= base_url('mobil/detail/'.$data->idmobil) ?>">
